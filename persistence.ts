@@ -19,4 +19,22 @@ export class UserRepository {
             throw new Error('ObjectId Invalid!');
         }
     }
+
+    static async updateUser(id: string, field: Object): Promise<any> {
+        if (Types.ObjectId.isValid(id)) {
+            return await UserModel.findByIdAndUpdate(id, {$set: field}, {new:true})
+        } else {
+           throw new Error('ObjectId Invalid!');
+        }
+    }  
+
+    static async deleteUser(id: string): Promise<any> {
+        if(Types.ObjectId.isValid(id)) {
+            await UserModel.findByIdAndDelete(id);
+            return await UserModel.find().exec();
+
+        } else {
+            throw new Error('ObjectId Invalid!');
+        }
+    }
 }  

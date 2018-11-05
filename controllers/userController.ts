@@ -33,4 +33,28 @@ export class UserController {
             next(error);
         }
     }
+
+    static async patchUser(req: Request, res: Response, next: NextFunction) {
+        await UserRepository.updateUser(req.params._id, req.body)
+        .then((doc) => {
+            console.log(`Atualizado Usuário: \n ${doc}`);
+            res.json(doc);
+        })
+        .catch((err)=> {
+            next(err);
+            res.sendStatus(400);
+        });
+    }
+
+    static async deleteUser(req: Request, res: Response, next: NextFunction) {
+        await UserRepository.deleteUser(req.params._id)
+        .then((doc) => {
+            console.log(`Removido Usuário: \n ${doc}`);
+            res.json(doc);
+        })
+        .catch((err)=> {
+            next(err);
+            res.sendStatus(400);
+        });
+    }
 }

@@ -4,8 +4,10 @@ import { UserController } from './controllers/userController';
 const router = Router();
 
 router
-    .post('/admin/usuario', UserController.postUser)
-    .get('/admin/usuarios', UserController.getUsers)
-    .get('/admin/usuario/:_id', UserController.getUserById);  
+    .post('/user', UserController.postUser)
+    .get('/users', UserController.getUsers)
+    .get('/user/:_id', UserController.getUserById)  
+    .patch('/user/:_id', UserController.patchUser)
+    .delete('/user/:_id', UserController.deleteUser);
 
-    export {router};
+export {router};
