@@ -24,4 +24,13 @@ export class UserController {
             next(error);
         }
     }
+
+    static async getUserById(req: Request, res: Response, next: NextFunction) {
+        try {
+            let user = await UserRepository.getUserById(req.params._id);
+            res.json(user);
+        } catch (error) {
+            next(error);
+        }
+    }
 }
