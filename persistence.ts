@@ -6,4 +6,8 @@ export class UserRepository {
         let new_user = await UserModel.create(user);
         return new_user.save();
     }
+
+    static async getUsers(): Promise<User[]> {
+        return await UserModel.find().exec();
+    }
 }  

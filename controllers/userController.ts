@@ -15,4 +15,13 @@ export class UserController {
             next(error);
         }
     }
+
+    static async getUsers(req: Request, res: Response, next: NextFunction) {
+        try {
+            let users = await UserRepository.getUsers();
+            res.json(users);
+        } catch (error) {
+            next(error);
+        }
+    }
 }
