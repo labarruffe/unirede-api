@@ -16,4 +16,4 @@ Run `npm run dev`. The server will listen on port 3000.
 
 ## Go to frontend app repository
 
-Follow UniredeWeb README.md
+Follow UniredeWeb README.md on https://github.com/labarruffe/unirede-web/blob/master/README.md
